@@ -1,64 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title><? echo "$yourdomain" ;?>web hosting</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="default.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php echo htmlspecialchars($yourdomain); ?> web hosting</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="default.css" rel="stylesheet">
 </head>
 <body>
-  <? 
-    $yourdomain = $_SERVER['HTTP_HOST'];
-    $yourdomain = preg_replace('/^www\./' , '' , $yourdomain);
-    ?>
+<?php
+  $yourdomain = $_SERVER['HTTP_HOST'];
+  $yourdomain = preg_replace('/^www\./', '', $yourdomain);
+?>
 
- <? include ("menu.php"); ?>
+<?php include("menu.php"); ?>
 
-<div id="page">
-  <div id="content">
-    <div id="welcome">
+<div class="container py-4">
+  <div class="row g-4">
+    <!-- Main content -->
+    <div class="col-lg-8">
+      <div class="mb-4 pb-3 section-divider">
+        <h2>Free hosting news</h2>
+        <p>We proudly announce the following new features on all free hosting accounts!</p>
+        <ol>
+          <li class="mb-3"><strong>cPanel PaperLantern theme</strong> — The modern and professional PaperLantern theme is now available for all free hosting accounts via cPanel.</li>
+          <li class="mb-3"><strong>Softaculous 1-click script installer</strong> — Softaculous is an auto installer for cPanel. Unlike other auto installers, Softaculous is much faster, well designed and it installs all scripts in just ONE STEP.</li>
+        </ol>
+      </div>
 
-  <h2>Free hosting news</h2>
-  <p>We proudly announce the following new features on all free hosting accounts!..<br></br>
-<strong>1. cPanel x3 theme</strong> - The popular and professional x3 theme is now available for all free hosting accounts.<br>
-<strong>2. Automatic HTTP/SSL</strong> - We are the only webhost's in the world to offer automatic free SSL/HTTP's encryption on all free hosted domain names.  You can instantly browse any domain on our network on a https:// url.<br>
-<strong>3. Softaculous 1 click script installer</strong> - Softaculous is an auto installer for cPanel.
-Unlike other auto installers Softaculous is much faster, well designed and it installs all scripts in just ONE STEP. 
-    <div class="floating-box">
-      <p><img src="images/cluster.jpg" alt="" width="200" height="150" title="rack" /></p>
+      <div class="row g-4">
+        <div class="col-md-5">
+          <img src="images/cluster.jpg" class="img-fluid rounded img-panel" alt="rack">
+        </div>
+        <div class="col-md-7">
+          <div class="card content-card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Value for free</h5>
+              <p class="card-text">Our cluster-based GRID network features hundreds of server nodes using the right software for the right job powered by Linux and Unix operating systems.</p>
+              <p class="card-text"><?php echo htmlspecialchars($yourdomain); ?> hosting has the right services for you and at the right price... <strong>$0.00!</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="floating-box" style="margin-right: 20px;">
-      <h2 class="title">Value for free</h2>
-<p>
-Our cluster-based GRID network features hundreds of server nodes using the right software for the right job powered by Linux and Unix operating systems.
-<br><? echo "$yourdomain" ;?> hosting has the right services for you and at the right price... $0.00!</p>
- </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Instant activation</h5>
+          <blockquote class="sidebar-quote">
+            <p class="mb-0">Free hosting accounts are activated instantly, no need to wait for manual approval, you can start building your pages immediately! A powerful cPanel control panel is provided to manage your website, packed with hundreds of great features including FTP, add-on domains and much more.</p>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- end #content -->
-  <div id="sidebar">
-    <div id="links">
-      <ul>
-
-    <li class="first"><a href="index.php"><b>H</b>omepage</a></li>
-    <li><a href="signup.php" accesskey="A"><b>S</b>ignup</a></li>
-    <li><a href="news.php" accesskey="P"><b>P</b>roduct new</a></li>
-    <li><a href="https://ifastnet.com/portal/" accesskey="S"><b>P</b>aid services</a></li>
-    <li><a href="contact.php" accesskey="U">Contact <b>U</b>s</a></li>
-    <li><a href="https://ifastnet.com/portal/terms.php" accesskey="S"><b>T</b>erms of service</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Instant activation</h2>
-      <blockquote>
-        <p>Free hosting accounts are activated instantly, no need to wait for manual approval, you can start building your pages immediately!  A powerful Vista Panel control panel is provided to manage your website, packed with hundreds of great features including Email, FTP add-on domain and much more..</p>
-      </blockquote>
-    </div>
-  </div>
-  <!-- end #sidebar -->
-  <div style="clear: both; height: 1px;"></div>
 </div>
-<!-- end #page -->
- <? include ("footer.php"); ?>
 
+<?php include("footer.php"); ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

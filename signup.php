@@ -1,107 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title><? echo "$yourdomain" ;?>web hosting</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="default.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php echo htmlspecialchars($yourdomain); ?> web hosting</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="default.css" rel="stylesheet">
 </head>
 <body>
-  <? 
-    $yourdomain = $_SERVER['HTTP_HOST'];
-    $yourdomain = preg_replace('/^www\./' , '' , $yourdomain);
-    ?>
-
- <? include ("menu.php"); ?>
-
-<div id="page">
-  <div id="content">
-    <div id="welcome">
-<h2>Sign Up For Free Hosting</h2>
-<p>You can sign up here for fast free PHP & MySQL hosting including a free sub domain. 
-Fill out the form below and your free hosting account will be created.  <em>Enjoy :)</em><br>
-</p>
-
-<td style="text-align: left;" colspan="21">
-<font size="-1"><span style="font-family: Helvetica,Arial,sans-serif;">
-<form method=post action="http://order.<? echo "$yourdomain" ;?>/register.php">
-<table>
-<tr><th style="text-align: left;">Username<td><input type=text name=username size=20 value="<?PHP if (isset($_GET['username'])) { echo $_GET['username']; }?>">
-<tr><th>&nbsp;<td>&nbsp;
-<tr><th style="text-align: left;">Password<td><input type=password name=password size=20>
-<tr><th>&nbsp;<td>&nbsp;
-<tr><th style="text-align: left;">Email Address<td><input type=text name=email size=20 value="<?PHP if (isset($_GET['email'])) { echo $_GET['email']; }?>">
-
-<tr><th style="text-align: left;">Site Category<td><select size="1" name="website_category">
-<option>Choose from Below</option>
-<option>Personal</option>
-<option>Business</option>
-<option>Hobby</option>
-<option>Forum</option>
-<option>Adult</option>
-<option>Dating</option>
-<option>Software / Download</option>
-</select>
-</td>
-
-<tr><th style="text-align: left;"><td>
-</td>
-
-<tr><th style="text-align: left;">Site Language<td>
-<select size="1" name="website_language">
-<option>Choose from Below</option>
-<option>English</option>
-<option>Non-English</option>
-</select>
-</td>
-
-<tr><th>&nbsp;<td>&nbsp;
-<?PHP 
-$id = md5(rand(6000,PHP_INT_MAX));
+<?php
+  $yourdomain = $_SERVER['HTTP_HOST'];
+  $yourdomain = preg_replace('/^www\./', '', $yourdomain);
 ?>
-<input type=hidden name=id value="<?PHP echo $id; ?>">
-<tr><th style="text-align: left;">Security Code<td><img width="250px" height="90px" src="http://order.<? echo "$yourdomain" ;?>/image.php?id=<?PHP echo $id; ?>">
-<tr><th>&nbsp;<td>&nbsp;
-<tr><th style="text-align: left;">Enter Security Code<td><input type=text name=number size=20>
-<tr><th>&nbsp;<td>&nbsp;
 
-<tr><th colspan=2><input type=submit value="Register" name=submit>
-</table>
-</form>		
-</span>
-<br style="font-family: Helvetica,Arial,sans-serif;">
-      </font>
-      <br style="font-family: Helvetica,Arial,sans-serif;">
-      </span></font>
-By signing up for our free hosting, you accept and agree to our <br><a href="https://ifastnet.com/portal/terms.php">Terms of Service</a>
-</td>
+<?php include("menu.php"); ?>
 
+<div class="container py-4">
+  <div class="row g-4">
+    <!-- Main content -->
+    <div class="col-lg-8">
+      <div class="mb-4 pb-3 section-divider">
+        <h2>Sign Up For Free Hosting</h2>
+        <p>You can sign up here for fast free PHP &amp; MySQL hosting including a free sub domain.
+        Fill out the form below and your free hosting account will be created. <em>Enjoy :)</em></p>
+      </div>
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form method="post" action="http://order.<?php echo htmlspecialchars($yourdomain); ?>/register.php">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" value="<?php if (isset($_GET['username'])) { echo htmlspecialchars($_GET['username']); } ?>">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" name="email" value="<?php if (isset($_GET['email'])) { echo htmlspecialchars($_GET['email']); } ?>">
+            </div>
+            <div class="mb-3">
+              <label for="website_category" class="form-label">Site Category</label>
+              <select class="form-select" id="website_category" name="website_category">
+                <option>Choose from Below</option>
+                <option>Personal</option>
+                <option>Business</option>
+                <option>Hobby</option>
+                <option>Forum</option>
+                <option>Adult</option>
+                <option>Dating</option>
+                <option>Software / Download</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="website_language" class="form-label">Site Language</label>
+              <select class="form-select" id="website_language" name="website_language">
+                <option>Choose from Below</option>
+                <option>English</option>
+                <option>Non-English</option>
+              </select>
+            </div>
+            <?php
+              $id = md5(rand(6000, PHP_INT_MAX));
+            ?>
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <div class="mb-3">
+              <label class="form-label">Security Code</label>
+              <img class="d-block mb-2 img-fluid rounded" src="http://order.<?php echo htmlspecialchars($yourdomain); ?>/image.php?id=<?php echo $id; ?>" alt="Security code" style="max-width:250px;">
+              <input type="text" class="form-control" name="number" placeholder="Enter security code">
+            </div>
+            <p class="text-muted small">By signing up for our free hosting, you accept and agree to our <a href="https://ifastnet.com/portal/terms.php">Terms of Service</a>.</p>
+            <button type="submit" name="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Instant activation</h5>
+          <blockquote class="sidebar-quote">
+            <p class="mb-0">Free hosting accounts are activated instantly, no need to wait for manual approval, you can start building your pages immediately! A powerful cPanel control panel is provided to manage your website, packed with hundreds of great features including FTP, add-on domains and much more.</p>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- end #content -->
-  <div id="sidebar">
-    <div id="links">
-      <ul>
-
-    <li class="first"><a href="index.php"><b>H</b>omepage</a></li>
-    <li><a href="signup.php" accesskey="A"><b>S</b>ignup</a></li>
-    <li><a href="news.php" accesskey="P"><b>P</b>roduct new</a></li>
-    <li><a href="https://ifastnet.com/portal/" accesskey="S"><b>P</b>aid services</a></li>
-    <li><a href="contact.php" accesskey="U">Contact <b>U</b>s</a></li>
-    <li><a href="https://ifastnet.com/portal/terms.php" accesskey="S"><b>T</b>erms of service</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Instant activation</h2>
-      <blockquote>
-        <p>Free hosting accounts are activated instantly, no need to wait for manual approval, you can start building your pages immediately!  A powerful Vista Panel control panel is provided to manage your website, packed with hundreds of great features including Email, FTP add-on domain and much more..</p>
-      </blockquote>
-    </div>
-  </div>
-  <!-- end #sidebar -->
-  <div style="clear: both; height: 1px;"></div>
 </div>
-<!-- end #page -->
- <? include ("footer.php"); ?>
 
+<?php include("footer.php"); ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
